@@ -89,7 +89,7 @@ Projeto funcional.
 
 Thaila Campoy
 
-Desenvolvido com auxílio de IAs, incluindo Claude, Gemini e ChatGPT.
+Este README foi criado com auxílio das IAs Claude e Gemini.
 
 ## Links
 

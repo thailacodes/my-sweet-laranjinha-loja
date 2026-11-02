@@ -19,7 +19,7 @@ body {
 
 #root {
   width: 100%;
-  max-width: 440px;
+  max-width: 1200px;
 }
 
 main {
@@ -254,4 +254,151 @@ button:hover {
 .botao-finalizar:hover {
   background-color: #e66700;
   transform: translateY(-1px);
+}
+
+.catalogo {
+  max-width: 1200px;
+}
+
+.catalogo-cabecalho {
+  margin-bottom: 24px;
+}
+
+.catalogo-cabecalho h1 {
+  margin-bottom: 12px;
+}
+
+.eyebrow,
+.produto-categoria {
+  color: #4d8b00;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.catalogo-cabecalho label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.catalogo-cabecalho input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d8d8dd;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.produto-card {
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.produto-imagem {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.produto-card-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.produto-card h2 {
+  margin: 0;
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.produto-card strong,
+.detalhe-produto > strong {
+  color: #ff7909;
+  font-size: 1.1rem;
+}
+
+.produto-card-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.produto-card-acoes button,
+.estado-pagina button {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.link-detalhe {
+  color: #4d8b00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.estado-pagina {
+  padding: 24px 0;
+  text-align: center;
+}
+
+.estado-erro {
+  color: #b3261e;
+}
+
+.detalhe-produto {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.detalhe-imagem {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  margin: 20px 0;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.detalhe-produto h1 {
+  text-align: left;
+  margin: 8px 0;
+}
+
+.detalhe-produto p {
+  margin: 12px 0;
+}
+
+@media (min-width: 768px) {
+  .grade-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .produto-card-acoes {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grade-produtos {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

@@ -1,42 +1,58 @@
+import Button from '@mui/material/Button';
+import PropTypes from 'prop-types';
 import { useCarrinho } from '../hooks/useCarrinho';
+import { formatarMoeda } from '../utils/moeda';
+import styles from './ItemCarrinho.module.css';
 
 function ItemCarrinho({ produto }) {
   const { alterarQuantidade, removerItem } = useCarrinho();
   const subtotal = produto.preco * produto.quantidade;
 
   return (
-    <div className="item-carrinho">
+    <article className={styles.item}>
       {produto.imagem && (
-        <img src={produto.imagem} alt={produto.nome} className="imagem-item-carrinho" />
+        <img src={produto.imagem} alt={produto.nome} className={styles.imagem} />
       )}
       
-      <div className="informacoes-item-carrinho">
-        <span className="titulo-item-carrinho">{produto.nome}</span>
-        <span className="preco-item-carrinho">R$ {produto.preco.toFixed(2)}</span>
-        <span className="subtotal-item-carrinho">Subtotal: R$ {subtotal.toFixed(2)}</span>
+      <div className={styles.informacoes}>
+        <span className={styles.titulo}>{produto.nome}</span>
+        <span className={styles.preco}>{formatarMoeda(produto.preco)}</span>
+        <span className={styles.subtotal}>Subtotal: {formatarMoeda(subtotal)}</span>
       </div>
-      <div className="controles-quantidade">
-        <button
-          type="button"
+      <div className={styles.controles}>
+        <Button
+          size="small"
+          variant="outlined"
           aria-label={`Diminuir quantidade de ${produto.nome}`}
           onClick={() => alterarQuantidade(produto.id, produto.quantidade - 1)}
         >
           -
-        </button>
-        <span className="valor-quantidade">Qtd.: {produto.quantidade}</span>
-        <button
-          type="button"
+        </Button>
+        <span className={styles.quantidade}>Qtd.: {produto.quantidade}</span>
+        <Button
+          size="small"
+          variant="outlined"
           aria-label={`Aumentar quantidade de ${produto.nome}`}
           onClick={() => alterarQuantidade(produto.id, produto.quantidade + 1)}
         >
           +
-        </button>
-        <button type="button" onClick={() => removerItem(produto.id)}>
+        </Button>
+        <Button size="small" color="error" onClick={() => removerItem(produto.id)}>
           Remover
-        </button>
+        </Button>
       </div>
-    </div>
+    </article>
   );
 }
+
+ItemCarrinho.propTypes = {
+  produto: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    nome: PropTypes.string.isRequired,
+    preco: PropTypes.number.isRequired,
+    quantidade: PropTypes.number.isRequired,
+    imagem: PropTypes.string,
+  }).isRequired,
+};
 
 export default ItemCarrinho;

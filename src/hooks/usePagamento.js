@@ -8,20 +8,20 @@ export function usePagamento() {
   const navigate = useNavigate();
   const { limparCarrinho } = useCarrinho();
 
-  // RF13: Custom hook que organiza a logica reutilizavel do pagamento.
+  // RF10 e RF11: concentra o processamento assíncrono e a navegação do checkout.
   const processarCompra = async (dadosCartao) => {
-    // RF08: Simula o processamento, mostra a mensagem e evita envios duplicados.
+    // Mantém o estado de processamento para exibir feedback e desabilitar o envio.
     setProcessando(true);
     
-    // Simula uma operação assíncrona (1,5 segundos aguardando)
+    // Simula uma operação assíncrona no navegador, sem back-end de pagamento.
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // RF07: Cartao com os 16 digitos iguais representa uma tentativa de golpe.
+    // RF11: cartão com os 16 dígitos iguais representa uma tentativa de golpe.
     const eGolpe = verificarDigitosIguais(dadosCartao.numeroCartao);
 
     setProcessando(false);
 
-    // RF09: Navega para sucesso ou falha depois da simulacao.
+    // RF13: sucesso limpa o carrinho; falha mantém os itens para nova tentativa.
     if (eGolpe) {
       navigate('/falha');
     } else {

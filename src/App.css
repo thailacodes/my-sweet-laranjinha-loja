@@ -291,6 +291,32 @@ button:hover {
   font: inherit;
 }
 
+.filtros-categoria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.filtros-categoria button {
+  padding: 8px 12px;
+  border: 1px solid #ff7909;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #d65f00;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.filtros-categoria button:hover,
+.filtros-categoria button:focus-visible,
+.filtros-categoria .filtro-ativo {
+  background: #ff7909;
+  color: #ffffff;
+}
+
 .grade-produtos {
   display: grid;
   grid-template-columns: 1fr;

@@ -1,8 +1,3 @@
-//Importando imagens dos produtos
-import boloImg from '../assets/bolo.jpg'; 
-import refrigeranteImg from '../assets/refrigerante.jpg'; 
-import geleiaImg from '../assets/geleia.jpg';
-
 // RF01: Representa o carrinho com pelo menos tres produtos em um array de objetos.
 // RF02: O carrinho e fixo; produtos e quantidades ja ficam definidos nos dados locais.
 const produtos = [
@@ -11,21 +6,21 @@ const produtos = [
     nome: "Bolo de laranja",
     preco: 69.90,
     quantidade: 1,
-    imagem: boloImg
+    imagem: '/imagens/bolo-laranja.jpg'
   },
   {
     id: 2,
     nome: "Refrigerante de laranja",
     preco: 10.00,
     quantidade: 1,
-    imagem: refrigeranteImg
+    imagem: '/imagens/refrigerante.png'
   },
   {
     id: 3,
     nome: "Geleia de laranja",
     preco: 30.90,
     quantidade: 1,
-    imagem: geleiaImg
+    imagem: '/imagens/geleia.jpg'
   }
 ];
 

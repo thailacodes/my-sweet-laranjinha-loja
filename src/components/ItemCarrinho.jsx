@@ -21,18 +21,22 @@ function ItemCarrinho({ produto }) {
       </div>
       <div className={styles.controles}>
         <Button
+          className={styles.controle}
           size="small"
-          variant="outlined"
-          aria-label={`Diminuir quantidade de ${produto.nome}`}
+          variant="contained"
+          aria-label="Diminuir quantidade"
           onClick={() => alterarQuantidade(produto.id, produto.quantidade - 1)}
         >
           -
         </Button>
-        <span className={styles.quantidade}>Qtd.: {produto.quantidade}</span>
+        <span className={styles.quantidade} aria-label={`Quantidade: ${produto.quantidade}`}>
+          {produto.quantidade}
+        </span>
         <Button
+          className={styles.controle}
           size="small"
-          variant="outlined"
-          aria-label={`Aumentar quantidade de ${produto.nome}`}
+          variant="contained"
+          aria-label="Aumentar quantidade"
           onClick={() => alterarQuantidade(produto.id, produto.quantidade + 1)}
         >
           +

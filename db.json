@@ -107,6 +107,33 @@
             "categoria": "Merch",
             "imagem": "/imagens/pelucia.png",
             "estoque": 5
+        },
+        {
+            "id": "13",
+            "nome": "Bolo de Laranja",
+            "descricao": "Bolo de laranja fofinho, perfeito para o piquenique.",
+            "preco": 69.9,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/bolo-laranja.jpg",
+            "estoque": 10
+        },
+        {
+            "id": "14",
+            "nome": "Refrigerante de Laranja",
+            "descricao": "Refrigerante de laranja gelado, na garrafinha da laranjinha.",
+            "preco": 10,
+            "categoria": "Bebidas",
+            "imagem": "/imagens/refrigerante.png",
+            "estoque": 20
+        },
+        {
+            "id": "15",
+            "nome": "Geleia de Laranja",
+            "descricao": "Geleia artesanal de laranja para passar no pão ou nos biscoitinhos.",
+            "preco": 30,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/geleia.jpg",
+            "estoque": 12
         }
     ]
 }

@@ -1,33 +1,43 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-
-const CarrinhoContext = createContext(null);
+import { useCallback, useMemo, useState } from 'react';
+import { CarrinhoContext } from './CarrinhoContextValue';
 
 export function CarrinhoProvider({ children }) {
   const [itens, setItens] = useState([]);
 
+  // RF07: adiciona uma unidade e impede que a quantidade ultrapasse o estoque.
   const adicionarItem = useCallback((produto) => {
     setItens((itensAtuais) => {
       const itemExistente = itensAtuais.find((item) => item.id === produto.id);
 
       if (!itemExistente) {
+        if (produto.estoque <= 0) return itensAtuais;
         return [...itensAtuais, { ...produto, quantidade: 1 }];
       }
 
+      if (itemExistente.quantidade >= itemExistente.estoque) return itensAtuais;
+
       return itensAtuais.map((item) => (
         item.id === produto.id
-          ? { ...item, quantidade: Math.min(item.quantidade + 1, item.estoque) }
+          ? { ...item, quantidade: item.quantidade + 1 }
           : item
       ));
     });
   }, []);
 
   const alterarQuantidade = useCallback((id, quantidade) => {
-    setItens((itensAtuais) => itensAtuais.map((item) => {
+    setItens((itensAtuais) => {
+      const itemAtual = itensAtuais.find((item) => item.id === id);
+      if (!itemAtual) return itensAtuais;
+
+      // RF08: mantém o mínimo de uma unidade e limita o máximo ao estoque disponível.
+      const quantidadeLimitada = Math.max(1, Math.min(quantidade, itemAtual.estoque));
+
+      return itensAtuais.map((item) => {
       if (item.id !== id) return item;
 
-      const quantidadeLimitada = Math.max(1, Math.min(quantidade, item.estoque));
       return { ...item, quantidade: quantidadeLimitada };
-    }));
+      });
+    });
   }, []);
 
   const removerItem = useCallback((id) => {
@@ -35,6 +45,11 @@ export function CarrinhoProvider({ children }) {
   }, []);
 
   const limparCarrinho = useCallback(() => setItens([]), []);
+
+  const obterEstoqueDisponivel = useCallback((id, estoqueTotal) => {
+    const item = itens.find((itemAtual) => itemAtual.id === id);
+    return Math.max(0, estoqueTotal - (item?.quantidade || 0));
+  }, [itens]);
 
   const quantidadeTotal = useMemo(
     () => itens.reduce((total, item) => total + item.quantidade, 0),
@@ -47,6 +62,7 @@ export function CarrinhoProvider({ children }) {
   );
 
   const valor = useMemo(() => ({
+    // RF06 e RF09: expõe operações e valores derivados para páginas e Header.
     itens,
     adicionarItem,
     alterarQuantidade,
@@ -54,6 +70,7 @@ export function CarrinhoProvider({ children }) {
     limparCarrinho,
     quantidadeTotal,
     valorTotal,
+    obterEstoqueDisponivel,
   }), [
     itens,
     adicionarItem,
@@ -62,17 +79,8 @@ export function CarrinhoProvider({ children }) {
     limparCarrinho,
     quantidadeTotal,
     valorTotal,
+    obterEstoqueDisponivel,
   ]);
 
   return <CarrinhoContext.Provider value={valor}>{children}</CarrinhoContext.Provider>;
-}
-
-export function useCarrinhoContext() {
-  const contexto = useContext(CarrinhoContext);
-
-  if (!contexto) {
-    throw new Error('useCarrinhoContext deve ser usado dentro de CarrinhoProvider.');
-  }
-
-  return contexto;
 }

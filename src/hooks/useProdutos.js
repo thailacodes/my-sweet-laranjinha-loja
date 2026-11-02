@@ -6,6 +6,7 @@ export function useProdutos() {
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState('');
 
+  // RF02: carrega o catálogo uma vez e mantém estados distintos para carregamento e erro.
   useEffect(() => {
     async function carregarProdutos() {
       try {

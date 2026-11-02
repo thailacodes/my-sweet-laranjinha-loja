@@ -1,0 +1,13 @@
+.imagemResultado {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 16px;
+}
+
+@media (min-width: 768px) {
+  .imagemResultado {
+    width: 200px;
+  }
+}

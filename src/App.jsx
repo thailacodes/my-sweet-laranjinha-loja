@@ -16,11 +16,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* RF14: Layout e Outlet mantêm Header/Footer em todas as rotas. */}
         <Route element={<Layout />}>
           <Route path="/" element={<Navigate to="/produtos" replace />} />
           <Route path="/produtos" element={<Produtos />} />
           <Route path="/produtos/:id" element={<DetalheProduto />} />
           <Route path="/carrinho" element={<Carrinho />} />
+          {/* RF12: somente carrinhos com itens podem acessar o pagamento. */}
           <Route element={<RotaPrivada />}>
             <Route path="/pagamento" element={<Pagamento />} />
           </Route>

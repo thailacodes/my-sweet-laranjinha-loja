@@ -1,0 +1,32 @@
+.vazio {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.imagem {
+  display: block;
+  width: 150px;
+  margin: 0 auto 16px;
+}
+
+.botaoProdutos {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #ff7909;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.botaoProdutos:hover {
+  background: #e66700;
+  transform: translateY(-1px);
+}
+
+.botaoProdutos:focus-visible {
+  outline: 3px solid #4d8b00;
+  outline-offset: 3px;
+}

@@ -1,6 +1,7 @@
-// RF03: Renderiza nome, preco unitario, quantidade e subtotal de cada produto.
-// RF12: Componente reutilizavel que recebe o produto por props.
+import { useCarrinho } from '../hooks/useCarrinho';
+
 function ItemCarrinho({ produto }) {
+  const { alterarQuantidade, removerItem } = useCarrinho();
   const subtotal = produto.preco * produto.quantidade;
 
   return (
@@ -14,7 +15,26 @@ function ItemCarrinho({ produto }) {
         <span className="preco-item-carrinho">R$ {produto.preco.toFixed(2)}</span>
         <span className="subtotal-item-carrinho">Subtotal: R$ {subtotal.toFixed(2)}</span>
       </div>
-      <span className="valor-quantidade">Qtd.: {produto.quantidade}</span>
+      <div className="controles-quantidade">
+        <button
+          type="button"
+          aria-label={`Diminuir quantidade de ${produto.nome}`}
+          onClick={() => alterarQuantidade(produto.id, produto.quantidade - 1)}
+        >
+          -
+        </button>
+        <span className="valor-quantidade">Qtd.: {produto.quantidade}</span>
+        <button
+          type="button"
+          aria-label={`Aumentar quantidade de ${produto.nome}`}
+          onClick={() => alterarQuantidade(produto.id, produto.quantidade + 1)}
+        >
+          +
+        </button>
+        <button type="button" onClick={() => removerItem(produto.id)}>
+          Remover
+        </button>
+      </div>
     </div>
   );
 }

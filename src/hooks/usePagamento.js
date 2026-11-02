@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCarrinho } from './useCarrinho';
 import { verificarDigitosIguais } from '../utils/pagamento';
 
 export function usePagamento() {
   const [processando, setProcessando] = useState(false);
   const navigate = useNavigate();
+  const { limparCarrinho } = useCarrinho();
 
   // RF13: Custom hook que organiza a logica reutilizavel do pagamento.
   const processarCompra = async (dadosCartao) => {
@@ -23,6 +25,7 @@ export function usePagamento() {
     if (eGolpe) {
       navigate('/falha');
     } else {
+      limparCarrinho();
       navigate('/sucesso');
     }
   };

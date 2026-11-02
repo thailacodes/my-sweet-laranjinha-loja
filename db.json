@@ -1,0 +1,112 @@
+{
+    "produtos": [
+        {
+            "id": "1",
+            "nome": "Bolo de Chocolate com Laranja",
+            "descricao": "Bolo de chocolate belga, recheado com creme de laranja, perfeito para o piquenique.",
+            "preco": 69.9,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/bolochocolatecomlaranja.png",
+            "estoque": 10
+        },
+        {
+            "id": "2",
+            "nome": "Cheesecake de Laranja",
+            "descricao": "Cheesecake cremoso com cobertura de laranja.",
+            "preco": 54.9,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/cheesecake.png",
+            "estoque": 8
+        },
+        {
+            "id": "3",
+            "nome": "Mousse de Laranja",
+            "descricao": "Mousse leve de laranja servido no potinho.",
+            "preco": 24.9,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/mousse.png",
+            "estoque": 15
+        },
+        {
+            "id": "4",
+            "nome": "Sorvete My Sweet Laranjinha",
+            "descricao": "Sorvete de laranja gelado no potinho da laranjinha.",
+            "preco": 19.9,
+            "categoria": "Sobremesas",
+            "imagem": "/imagens/sorvete.png",
+            "estoque": 20
+        },
+        {
+            "id": "5",
+            "nome": "Biscoitos de Laranja",
+            "descricao": "Biscoitinhos amanteigados com sabor de laranja, em potinho.",
+            "preco": 29.9,
+            "categoria": "Snacks",
+            "imagem": "/imagens/biscoito.png",
+            "estoque": 12
+        },
+        {
+            "id": "6",
+            "nome": "Bergamota",
+            "descricao": "Um pedacinho de felicidade em forma de bergamota doce.",
+            "preco": 22.9,
+            "categoria": "Snacks",
+            "imagem": "/imagens/bergamotafruta.png",
+            "estoque": 14
+        },
+        {
+            "id": "7",
+            "nome": "Laranjinhas",
+            "descricao": "Laranjinhas doces para presentear quem você ama.",
+            "preco": 18.9,
+            "categoria": "Snacks",
+            "imagem": "/imagens/laranjafruta.png",
+            "estoque": 18
+        },
+        {
+            "id": "8",
+            "nome": "Suco de Laranja",
+            "descricao": "Suco natural de laranja na garrafinha da laranjinha.",
+            "preco": 12.9,
+            "categoria": "Bebidas",
+            "imagem": "/imagens/sucodelaranja.png",
+            "estoque": 25
+        },
+        {
+            "id": "9",
+            "nome": "Boné Laranjinha",
+            "descricao": "Boné laranja e branco com a laranjinha bordada.",
+            "preco": 59.9,
+            "categoria": "Merch",
+            "imagem": "/imagens/bone.png",
+            "estoque": 8
+        },
+        {
+            "id": "10",
+            "nome": "Camiseta edição limitada Laranja e Bergamotinha",
+            "descricao": "Camiseta branca com a dupla laranja e bergamotinha edição especial para casais.",
+            "preco": 79.9,
+            "categoria": "Merch",
+            "imagem": "/imagens/camiseta.png",
+            "estoque": 6
+        },
+        {
+            "id": "11",
+            "nome": "Jaqueta Jeans Laranjinha",
+            "descricao": "Jaqueta jeans com a laranjinha estampada nas costas.",
+            "preco": 189.9,
+            "categoria": "Merch",
+            "imagem": "/imagens/jaqueta.png",
+            "estoque": 3
+        },
+        {
+            "id": "12",
+            "nome": "Pelúcia Laranjinha",
+            "descricao": "Laranja de pelúcia com folhinha verde, para presentear.",
+            "preco": 89.9,
+            "categoria": "Merch",
+            "imagem": "/imagens/pelucia.png",
+            "estoque": 5
+        }
+    ]
+}

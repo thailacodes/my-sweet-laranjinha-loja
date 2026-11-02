@@ -93,7 +93,7 @@ Este README foi criado com auxílio das IAs Claude e Gemini.
 
 ## Links
 
-- Aplicação publicada: COLE_AQUI_O_LINK_DO_DEPLOY
+- Aplicação publicada: https://mysweetlaranjinhastore.netlify.app/produtos
 - Trello: https://trello.com/invite/b/6ae261820b26777a62bba1a4/ATTI85df181450f1c0b5cdf019004cab4ad71F2C5CA4/projeto-final-front-end-t2-sctec
 - GitHub: https://github.com/thailacodes/my-sweet-laranjinha-loja
 

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCarrinho } from './useCarrinho';
 import { verificarDigitosIguais } from '../utils/pagamento';
 
 export function usePagamento() {
   const [processando, setProcessando] = useState(false);
   const navigate = useNavigate();
-  const { limparCarrinho } = useCarrinho();
 
   // RF10 e RF11: concentra o processamento assíncrono e a navegação do checkout.
   const processarCompra = async (dadosCartao) => {
@@ -25,9 +23,8 @@ export function usePagamento() {
     if (eGolpe) {
       navigate('/falha');
     } else {
-      // Navega primeiro para garantir que a tela de confirmação seja exibida.
+      // A página de sucesso limpa o carrinho depois que a confirmação é exibida.
       navigate('/sucesso');
-      limparCarrinho();
     }
   };
 

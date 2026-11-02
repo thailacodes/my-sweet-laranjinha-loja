@@ -1,0 +1,22 @@
+.voltar {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border: 1px solid #3b7a00;
+  border-radius: 8px;
+  background: #3b7a00;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.voltar:hover {
+  background: #2f6100;
+  color: #ffffff;
+}
+
+.voltar:focus-visible {
+  outline: 3px solid #3b7a00;
+  outline-offset: 2px;
+}

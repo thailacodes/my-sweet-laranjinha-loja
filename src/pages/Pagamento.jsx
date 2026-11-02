@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { usePagamento } from '../hooks/usePagamento';
-import produtos from '../data/produtos';
-import logoImg from '../assets/mysweetlogo.png';
+import { useCarrinho } from '../hooks/useCarrinho';
 
 // RF06: Valida titular, cartao com 16 digitos, validade MM/AA e CVV com 3 digitos.
 const esquemaPagamento = z.object({
@@ -24,8 +23,7 @@ const esquemaPagamento = z.object({
 
 function Pagamento() {
   const { processarCompra, processando } = usePagamento();
-  // RF05: Exibe o total correspondente ao resumo antes da finalizacao da compra.
-  const total = produtos.reduce((acc, produto) => acc + produto.preco * produto.quantidade, 0);
+  const { valorTotal } = useCarrinho();
 
   const {
     register,
@@ -41,10 +39,9 @@ function Pagamento() {
 
   return (
   <main>
-    <img src={logoImg} alt="My Sweet Laranjinha" className="brand-logo" />
-    <Link className="link-voltar" to="/">← Voltar ao Carrinho</Link>
+    <Link className="link-voltar" to="/carrinho">← Voltar ao Carrinho</Link>
       <h1 className="page-title">Pagamento</h1>
-      <p className="payment-total">Total da compra: R$ {total.toFixed(2)}</p>
+      <p className="payment-total">Total da compra: R$ {valorTotal.toFixed(2).replace('.', ',')}</p>
       {/* RF05: Formulario usado para finalizar a compra simulada. */}
       <form onSubmit={handleSubmit(aoSubmeter)}>
         <div className="form-field">

@@ -1,73 +1,99 @@
 # My Sweet Laranjinha
 
-Esse projeto é uma simulação de uma loja de produtos feitos com laranja. Eu criei o My Sweet Laranjinha para mostrar o fluxo desde o carrinho até o pagamento. O usuário escolhe finalizar a compra, preenche os dados fictícios do cartão e recebe uma resposta informando se a compra foi aprovada ou bloqueada como tentativa de golpe.
+## Objetivo
+
+O projeto My Sweet Laranjinha é uma loja virtual feita com React e Vite. Nela, o cliente navega pelo catálogo, busca produtos, monta o carrinho e simula o pagamento.
 
 ## Como executar
 
-1. Instale as dependências com `npm install`.
-2. Inicie a aplicação com `npm run dev`.
-3. Abra o endereço informado pelo Vite no navegador.
-4. Confira os produtos e clique em **Finalizar compra**.
-5. Preencha o formulário de pagamento.
+1. Clone o repositório e abra o projeto no VS Code.
+2. Instale as dependências com `npm install`.
+3. Em um terminal, inicie a API simulada com `npm run api` (porta 3001).
+4. Em outro terminal, inicie a aplicação com `npm run dev`.
+5. Abra o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
 
-## Cartões de teste
+Para rodar os testes: `npm run test`.
+Para gerar a versão de produção: `npm run build`.
 
-### Compra aprovada
+### Variável de ambiente
 
-Use o cartão `1234567812345678` para acessar a tela de sucesso com a laranjinha comemorando.
+Crie o arquivo `.env.local` na raiz do projeto:
 
-### Tentativa de golpe
+```env
+VITE_USAR_API_LOCAL=true
+```
 
-Use o cartão `1111111111111111` para bloquear a transação e exibir o alerta de segurança da laranjinha brava.
+- `true`: carrega os produtos pelo JSON Server (`http://localhost:3001`).
+- Qualquer outro valor: usa os dados direto do `db.json`, útil no deploy sem API local.
 
 ## O que o projeto faz
 
-Na primeira tela, o usuário consegue ver os produtos, as imagens, as quantidades, os subtotais e o valor total. Depois, pode ir para a tela de pagamento e preencher o nome, o número do cartão, a validade e o CVV.
+- Exibe um catálogo com 15 produtos carregados da API `/produtos`;
+- Pesquisa produtos por nome e filtra por categoria (Sobremesas, Snacks, Bebidas e Merch);
+- Mostra a página de detalhes de cada produto em `/produtos/:id`;
+- Permite adicionar, remover e alterar a quantidade dos itens no carrinho, respeitando o estoque;
+- Calcula subtotal, total e mostra a quantidade de itens no Header;
+- Protege a rota `/pagamento`, acessível apenas com itens no carrinho;
+- Valida o formulário de pagamento (titular, cartão de 16 dígitos, validade `MM/AA` e CVV de 3 dígitos);
+- Simula a compra: cartão comum vai para `/sucesso` e limpa o carrinho; cartão com todos os dígitos iguais vai para `/falha` com a mensagem `tentativa de golpe`, mantendo os itens;
+- Exibe uma página 404 para rotas inexistentes.
 
-O pagamento é apenas uma simulação. O sistema mostra uma mensagem de processamento e depois verifica o número informado. Um cartão comum vai para a tela de sucesso. Quando os 16 dígitos são iguais, a compra é bloqueada e aparece o alerta de tentativa de golpe.
+### Cartões para teste
 
-O carrinho é fixo, conforme o enunciado do projeto. Os produtos e quantidades já ficam definidos no array local, por isso não há adição, remoção ou alteração de itens.
+- Compra aprovada: `1234567812345678`
+- Tentativa de golpe: `1111111111111111`
 
 ## Tecnologias utilizadas
 
 - React
 - JavaScript e JSX
 - Vite
-- React Router
+- React Router DOM
+- Context API e hooks customizados
+- CSS Modules
+- Material UI
 - React Hook Form
 - Zod
-- CSS
+- JSON Server
+- PropTypes
+- Vitest
 
 ## Estrutura do projeto
 
-- `src/assets/` - imagens dos produtos, resultados e logo
-- `src/components/` - itens e resumo do carrinho
-- `src/data/` - dados dos produtos
-- `src/hooks/` - processamento do pagamento
-- `src/pages/` - telas do carrinho, pagamento, sucesso e falha
-- `src/utils/` - regra dos dígitos iguais
+```text
+src/
+├── components/   # Header, Footer, Layout, cards e itens reutilizáveis
+├── contexts/     # Estado global do carrinho
+├── hooks/        # Hooks de produtos, carrinho e pagamento
+├── pages/        # Catálogo, carrinho, pagamento e resultados
+├── services/     # Comunicação com a API de produtos
+├── utils/        # Regras de busca, moeda e pagamento
+└── assets/       # Imagens usadas pela aplicação
 
-## Referência de estudo
-
-Antes de iniciar o projeto, assisti a uma videoaula de React para iniciantes no YouTube, do canal Programação Web:
-
-[Videoaula de React para iniciantes](https://youtu.be/hd2B7XQAFls?is=BMmPWsVPdv8jsEJ8)
-
-## Uso de inteligência artificial
-
-Utilizei a Gemini para me orientar na criação das pastas, na organização das etapas e no fluxo entre as páginas. Revisei e testei as sugestões, adaptando o código ao projeto.
-
-As imagens e a logo da identidade visual foram feitas por mim, utilizando o aplicativo Figma. As imagens dos produtos e logo laranjas foram criadas com ajuda de IA.
+db.json           # Banco de dados da API simulada
+```
 
 ## Melhorias futuras
 
-- Adicionar testes automatizados para o formulário e os fluxos de pagamento.
-- Criar um carrinho dinâmico com alteração de quantidade e remoção de produtos.
-- Melhorar a persistência dos dados do carrinho.
-- Adicionar mais produtos e uma tela de catálogo.
+- Ordenação por preço combinada com o filtro por categoria;
+- Busca sincronizada com a URL;
+- Carrinho persistente com `localStorage`;
+- Tema claro/escuro;
+- Testes de componentes com React Testing Library.
 
-## Observação
+## Status
 
-Prof. Eduardo, me desculpe por não fazer o vídeo desta vez e nem o Trello. Tentei fazer o projeto, pois esta semana foi muito corrida e não quis ficar sem entregar.
+Projeto funcional.
 
+## Autora
+
+Thaila Campoy
+
+Desenvolvido com auxílio de IAs, incluindo Claude, Gemini e ChatGPT.
+
+## Links
+
+- Aplicação publicada: COLE_AQUI_O_LINK_DO_DEPLOY
+- Trello: https://trello.com/invite/b/6ae261820b26777a62bba1a4/ATTI85df181450f1c0b5cdf019004cab4ad71F2C5CA4/projeto-final-front-end-t2-sctec
+- GitHub: https://github.com/thailacodes/my-sweet-laranjinha-loja
 

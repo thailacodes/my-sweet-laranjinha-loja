@@ -1,17 +1,16 @@
-import sucessoImg from '../assets/sucesso.png';
 import PaginaResultado from '../components/PaginaResultado';
 
-// RF10: Exibe a confirmacao da compra aprovada e permite voltar ao carrinho.
+// Exibe a confirmação da compra aprovada e permite continuar comprando.
 function Sucesso() {
   return (
     <PaginaResultado
       variante="sucesso"
-      imagem={sucessoImg}
-      alt="Compra Concluída"
-      titulo="Pedido Concluído!"
-      descricao="Sua compra foi aprovada com sucesso."
-      textoBotao="Voltar ao Carrinho"
-      destinoBotao="/"
+      imagem="/imagens/laranjinha-feliz.gif"
+      alt="Laranjinha feliz comemorando a compra aprovada"
+      titulo="Compra finalizada!"
+      descricao="Sua compra foi aprovada com sucesso. O carrinho foi esvaziado."
+      textoBotao="Continuar comprando"
+      destinoBotao="/produtos"
     />
   );
 }

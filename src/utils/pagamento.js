@@ -1,10 +1,10 @@
 export function verificarDigitosIguais(numeroCartao) {
-  // RF07: Remove espacos e hifens e verifica se os 16 digitos sao iguais.
+  // RF11: remove espaços e hífens para identificar o cartão de teste de fraude.
   const limpo = numeroCartao.replace(/[\s-]/g, '');
   
-  // Se não tiver 16 dígitos, ignora
+  // A validação do formulário cuida do formato; esta regra só identifica os dígitos iguais.
   if (limpo.length !== 16) return false;
 
-  // Verifica se todos os caracteres são iguais ao primeiro
+  // RF11: todos os caracteres devem ser iguais ao primeiro dígito.
   return limpo.split('').every(char => char === limpo[0]);
 }

@@ -1,33 +1,34 @@
-import produtos from '../data/produtos';
+import { Link } from 'react-router-dom';
 import ItemCarrinho from '../components/ItemCarrinho';
 import ResumoCompra from '../components/ResumoCompra';
+import { useCarrinho } from '../hooks/useCarrinho';
 import tristeImg from '../assets/triste.png';
-import logoImg from '../assets/mysweetlogo.png';
+import styles from './Carrinho.module.css';
 
 function Carrinho() {
+  const { itens } = useCarrinho();
+
   return (
     <main>
-      <img src={logoImg} alt="My Sweet Laranjinha" className="brand-logo" />
       <h2>Meu Carrinho</h2>
 
-      {produtos.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '20px 0' }}>
-          <img 
-            src={tristeImg} 
-            alt="Carrinho Vazio" 
-            style={{ width: '150px', margin: '0 auto 16px', display: 'block' }} 
-          />
+      {itens.length === 0 ? (
+        <div className={styles.vazio}>
+          <img src={tristeImg} alt="Carrinho Vazio" className={styles.imagem} />
           <p>Seu carrinho está vazio!</p>
+          <Link className={styles.botaoProdutos} to="/produtos">
+            Ver produtos
+          </Link>
         </div>
       ) : (
         <>
           {/* RF03: Renderiza a lista usando map e uma key estavel para cada produto. */}
           <div className="lista-carrinho">
-            {produtos.map((produto) => (
-              <ItemCarrinho key={produto.id} produto={produto} />
+            {itens.map((item) => (
+              <ItemCarrinho key={item.id} produto={item} />
             ))}
           </div>
-          <ResumoCompra produtos={produtos} />
+          <ResumoCompra produtos={itens} />
         </>
       )}
     </main>

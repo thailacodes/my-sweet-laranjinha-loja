@@ -25,8 +25,9 @@ export function usePagamento() {
     if (eGolpe) {
       navigate('/falha');
     } else {
-      limparCarrinho();
+      // Navega primeiro para garantir que a tela de confirmação seja exibida.
       navigate('/sucesso');
+      limparCarrinho();
     }
   };
 

@@ -56,4 +56,8 @@ React, Vite, React Router DOM, Context API, CSS Modules, Material UI, React Hook
 
 Thaila Campoy
 
+## Agradecimentos
+
+Agradeço de coração por todo ensinamento do Prof. Eduardo. Foi uma experiência incrível com os professores durante esses meses de aprendizagem. Sentirei saudades.
+
 Este projeto foi realizado com auxílio das IAs Claude e Gemini.

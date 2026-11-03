@@ -89,6 +89,8 @@ Projeto funcional.
 
 Thaila Campoy
 
+> Agradeço de coração por todo ensinamento do Prof. Eduardo. Foi uma experiência incrível com os professores durante esses meses de aprendizagem. Sentirei saudades.
+
 Este README foi criado com auxílio das IAs Claude e Gemini.
 
 ## Links
@@ -96,4 +98,3 @@ Este README foi criado com auxílio das IAs Claude e Gemini.
 - Aplicação publicada: https://mysweetlaranjinhastore.netlify.app/produtos
 - Trello: https://trello.com/invite/b/6ae261820b26777a62bba1a4/ATTI85df181450f1c0b5cdf019004cab4ad71F2C5CA4/projeto-final-front-end-t2-sctec
 - GitHub: https://github.com/thailacodes/my-sweet-laranjinha-loja
-

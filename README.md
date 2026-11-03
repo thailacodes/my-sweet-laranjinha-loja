@@ -60,4 +60,6 @@ Thaila Campoy
 
 Agradeço de coração por todo ensinamento do Prof. Eduardo. Foi uma experiência incrível com os professores durante esses meses de aprendizagem. Sentirei saudades.
 
+Continuarei estudando. Obrigada, SCTECH, pela oportunidade!
+
 Este projeto foi realizado com auxílio das IAs Claude e Gemini.
